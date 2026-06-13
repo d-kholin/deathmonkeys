@@ -59,7 +59,7 @@ Exceptions:
 | Display | 40px | 700 (bold) | 1.1 | JetBrains Mono, monospace |
 
 Additional rules:
-- Wordmark "DEATH MONKEYS" in nav: 18px, weight 700, uppercase, letter-spacing 0.1em, JetBrains Mono
+- Wordmark "DEATH MONKEYS" in nav: Heading scale (20px), weight 700, uppercase, letter-spacing 0.1em, JetBrains Mono.
 - Major section headings (e.g., "EVENTS", "ROSTER"): uppercase, letter-spacing 0.05em — same size class as Heading (20px)
 - Callsign text in RosterCard: Heading scale (20px, 700, JetBrains Mono) — callsign is the visual dominant element
 - Real name in RosterCard: Label scale (14px, 400) — secondary, muted
