@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. `npm run build` completes successfully and produces a valid `dist/` directory
   4. Mobile nav hamburger toggles the menu open and closed on a narrow viewport
 
-**Plans:** 5/5 plans complete
+**Plans:** 6/5 plans complete
 **UI hint:** yes
 
 Plans:
@@ -110,4 +110,4 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Death Monkeys Site Build | 5/5 | Complete   | 2026-06-13 |
+| 1. Death Monkeys Site Build | 6/5 | Complete   | 2026-06-13 |
