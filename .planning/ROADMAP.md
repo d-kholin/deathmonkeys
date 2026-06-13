@@ -13,7 +13,7 @@ A single-phase build that delivers a complete, static Astro v5 team website for 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Death Monkeys Site Build** - Complete static Astro site with all pages, content collections, components, and tactical dark design
+- [x] **Phase 1: Death Monkeys Site Build** - Complete static Astro site with all pages, content collections, components, and tactical dark design (completed 2026-06-13)
 
 ## Phase Details
 
@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. `npm run build` completes successfully and produces a valid `dist/` directory
   4. Mobile nav hamburger toggles the menu open and closed on a narrow viewport
 
-**Plans:** 4/5 plans executed
+**Plans:** 5/5 plans complete
 **UI hint:** yes
 
 Plans:
@@ -110,4 +110,4 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Death Monkeys Site Build | 4/5 | In Progress|  |
+| 1. Death Monkeys Site Build | 5/5 | Complete   | 2026-06-13 |
