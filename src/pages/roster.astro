@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RosterCard from '../components/RosterCard.astro';
+import { getCollection } from 'astro:content';
+
+const allMembers = await getCollection('roster');
+// Active members first, then inactive
+const members = allMembers.sort((a, b) => {
+  if (a.data.active === b.data.active) return 0;
+  return a.data.active ? -1 : 1;
+});
+---
+
+<BaseLayout title="Roster — Death Monkeys">
+  <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+    <h1 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">
+      ROSTER
+    </h1>
+
+    {members.length === 0 ? (
+      <div class="text-center py-[var(--spacing-3xl)]">
+        <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">
+          No Operators Found
+        </p>
+        <p class="text-text-muted text-base">
+          The team roster is currently classified.
+        </p>
+      </div>
+    ) : (
+      <div class="flex flex-col gap-[var(--spacing-md)]">
+        {members.map((member) => (
+          <RosterCard {...member.data} />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
