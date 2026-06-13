@@ -1,0 +1,35 @@
+---
+interface Props {
+  callsign: string;
+  realName?: string;
+  role: string;
+  loadout: string;
+  active: boolean;
+}
+
+const { callsign, realName, role, loadout, active } = Astro.props;
+---
+
+<article class={`bg-surface-raised p-[var(--spacing-lg)] ${!active ? 'opacity-50 bg-surface-inactive' : ''}`}>
+  <div class="mb-[var(--spacing-sm)]">
+    <h3 class="font-heading text-[20px] font-bold leading-[1.2] text-text-primary uppercase tracking-[0.05em]">
+      {callsign}
+    </h3>
+    {realName && (
+      <p class="text-[14px] leading-[1.4] text-text-muted mt-[var(--spacing-xs)]">
+        {realName}
+      </p>
+    )}
+  </div>
+  <p class="text-base text-text-secondary leading-relaxed mb-[var(--spacing-xs)]">
+    {role}
+  </p>
+  <p class="text-[14px] text-text-muted leading-[1.4]">
+    {loadout}
+  </p>
+  {!active && (
+    <span class="inline-block mt-[var(--spacing-sm)] text-[14px] uppercase tracking-[0.05em] text-text-muted font-heading font-bold">
+      INACTIVE
+    </span>
+  )}
+</article>

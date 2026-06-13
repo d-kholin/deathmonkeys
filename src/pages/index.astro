@@ -1,7 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const noiseSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`;
 ---
 
 <BaseLayout title="Death Monkeys">
-  <h1 class="text-text-primary font-heading text-4xl font-bold uppercase px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">DEATH MONKEYS</h1>
+  <!-- Hero Section -->
+  <section
+    class="relative flex flex-col items-center justify-center min-h-[65vh] bg-surface text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]"
+    style={`background-image: ${noiseSvg}; background-repeat: repeat;`}
+  >
+    <h1 class="font-heading text-[40px] max-sm:text-[28px] font-bold uppercase tracking-[0.1em] text-text-primary leading-[1.1]">
+      DEATH MONKEYS
+    </h1>
+    <p class="mt-[var(--spacing-md)] font-heading text-[40px] max-sm:text-[28px] font-bold leading-[1.1] text-text-primary">
+      Armed. Dangerous. Slightly Bananas.
+    </p>
+    <a
+      href="/about#join"
+      class="mt-[var(--spacing-xl)] inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
+    >
+      Join the Team
+    </a>
+  </section>
+
+  <!-- About Blurb + Section Navigation -->
+  <section class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+    <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
+      We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
+      Part milsim crew, part chaos agents. If you want structured ops with a side of primate energy,
+      you've found your people.
+    </p>
+    <nav class="flex flex-wrap gap-[var(--spacing-md)]" aria-label="Site sections">
+      <a href="/about" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">About</a>
+      <a href="/events" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Events</a>
+      <a href="/roster" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Roster</a>
+      <a href="/gallery" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Gallery</a>
+    </nav>
+  </section>
 </BaseLayout>
