@@ -22,7 +22,8 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <!-- Fixed background image — stays in place while content scrolls -->
   <div
     id="fixed-bg"
-    style="position: fixed; inset: 0; z-index: -2; background-image: url('/images/hero-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+    class="hero-fixed-bg"
+    style="position: fixed; inset: 0; z-index: -2; background-image: url('/images/hero-bg.png'); background-repeat: no-repeat;"
     aria-hidden="true"
   ></div>
   <!-- Scroll-driven overlay — darkens as user scrolls into content -->

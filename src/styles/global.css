@@ -62,6 +62,19 @@ body {
   color: var(--color-text-primary);
 }
 
+/* Hero background — contain the logo on portrait mobile */
+.hero-fixed-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .hero-fixed-bg {
+    background-size: auto 44vh;
+    background-position: center 30%;
+  }
+}
+
 /* Hero scroll cue bounce */
 @keyframes bounce-down {
   0%, 100% { transform: translateY(0); }
