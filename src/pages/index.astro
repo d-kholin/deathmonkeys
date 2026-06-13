@@ -1,5 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EventCard from '../components/EventCard.astro';
+import RosterCard from '../components/RosterCard.astro';
+import GalleryCard from '../components/GalleryCard.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events');
+const events = allEvents.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+const allMembers = await getCollection('roster');
+const members = allMembers.sort((a, b) => {
+  if (a.data.active === b.data.active) return 0;
+  return a.data.active ? -1 : 1;
+});
+
+const allGallery = await getCollection('gallery');
+const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout title="Death Monkeys" bodyClass="bg-transparent">
@@ -9,42 +25,132 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     style="position: fixed; inset: 0; z-index: -2; background-image: url('/images/hero-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
     aria-hidden="true"
   ></div>
-  <!-- Scroll-driven overlay — darkens as user scrolls down -->
+  <!-- Scroll-driven overlay — darkens as user scrolls into content -->
   <div
     id="bg-overlay"
     style="position: fixed; inset: 0; z-index: -1; background: black; opacity: 0.1;"
     aria-hidden="true"
   ></div>
 
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center min-h-[90vh] text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]">
-    <div class="max-w-2xl w-full">
-      <h1 class="font-heading text-[40px] max-sm:text-[28px] font-bold uppercase tracking-[0.1em] text-text-primary leading-[1.1]">
-        DEATH MONKEYS
-      </h1>
-      <a
-        href="/about#join"
-        class="mt-[var(--spacing-xl)] inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
-      >
-        Join the Team
-      </a>
+  <!-- Hero: full viewport, logo in background does the talking -->
+  <section aria-label="Hero" style="min-height: 90vh;"></section>
+
+  <!-- About -->
+  <section id="about" class="bg-black/80">
+    <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+      <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-2xl)]">
+        We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
+        Part milsim crew, part chaos agents.
+      </p>
+
+      <div class="mb-[var(--spacing-2xl)]">
+        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Who We Are</h2>
+        <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-md)]">
+          The Death Monkeys are a small-unit airsoft team that takes the game seriously — but never
+          themselves. We run coordinated multi-role operations, communicate on comms, and hold
+          objectives with tactical discipline. Then we argue about who got hit first and laugh about
+          it over hot dogs.
+        </p>
+        <p class="text-text-secondary text-base leading-relaxed">
+          Founded by Nakunga (Naku) with a mandate to have the most fun per trigger pull of any
+          team on the field, the Death Monkeys have grown from a two-person squad into a full
+          operational element with dedicated assaulters, support gunners, and recon specialists.
+        </p>
+      </div>
+
+      <div class="mb-[var(--spacing-2xl)]">
+        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Where We Play</h2>
+        <p class="text-text-secondary text-base leading-relaxed">
+          Our home field is <strong class="text-text-primary">Badlands field, Alberta</strong>.
+          The terrain is varied, the weather is unpredictable, and the cover is exactly right for
+          the kind of chaos we prefer. We run ops on scheduled game days and occasionally book
+          private team training sessions when Command decides we need to sharpen our edge.
+        </p>
+      </div>
+
+      <div class="mb-[var(--spacing-2xl)]">
+        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Ethos</h2>
+        <ul class="space-y-[var(--spacing-sm)] text-text-secondary text-base leading-relaxed list-none">
+          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
+            <strong class="text-text-primary">Call your hits.</strong> Every time. No exceptions. The game only works if we're all honest.
+          </li>
+          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
+            <strong class="text-text-primary">Communicate.</strong> Silence is how operations fall apart. Get on comms and use them.
+          </li>
+          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
+            <strong class="text-text-primary">Debrief everything.</strong> After every engagement there is an AAR. What worked, what didn't, and who got lit up from behind again.
+          </li>
+          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
+            <strong class="text-text-primary">Leave the ego at the gate.</strong> We're here to improve and to enjoy the game. New players get patience, not grief.
+          </li>
+        </ul>
+      </div>
+
+      <div id="join">
+        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Want In?</h2>
+        <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
+          We welcome players of all experience levels. If you can follow commands, call your hits,
+          and laugh when things go sideways, you'll fit right in. Show up to a field day, introduce
+          yourself, and let your trigger finger do the talking.
+        </p>
+        <a
+          href="#roster"
+          class="inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
+        >
+          View the Roster
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- About Blurb + Section Navigation -->
-  <section class="bg-black/80" style="backdrop-filter: blur(2px);">
+  <!-- Events -->
+  <section id="events" class="bg-black/80 border-t border-border">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
-      <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
-        We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
-        Part milsim crew, part chaos agents. If you want structured ops with a side of primate energy,
-        you've found your people.
-      </p>
-      <nav class="flex flex-wrap gap-[var(--spacing-md)]" aria-label="Site sections">
-        <a href="/about" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">About</a>
-        <a href="/events" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Events</a>
-        <a href="/roster" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Roster</a>
-        <a href="/gallery" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Gallery</a>
-      </nav>
+      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Events</h2>
+      {events.length === 0 ? (
+        <div class="text-center py-[var(--spacing-3xl)]">
+          <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No Operations Scheduled</p>
+          <p class="text-text-muted text-base">Check back soon — Command is planning the next op.</p>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-[var(--spacing-md)]">
+          {events.map((event) => <EventCard {...event.data} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Roster -->
+  <section id="roster" class="bg-black/80 border-t border-border">
+    <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Roster</h2>
+      {members.length === 0 ? (
+        <div class="text-center py-[var(--spacing-3xl)]">
+          <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No Operators Found</p>
+          <p class="text-text-muted text-base">The team roster is currently classified.</p>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-[var(--spacing-md)]">
+          {members.map((member) => <RosterCard {...member.data} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="bg-black/80 border-t border-border">
+    <div class="max-w-4xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Gallery</h2>
+      {galleryEntries.length === 0 ? (
+        <div class="text-center py-[var(--spacing-3xl)]">
+          <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No After-Action Reports</p>
+          <p class="text-text-muted text-base">No ops have been documented yet. Check back after the next engagement.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-[var(--spacing-lg)]">
+          {galleryEntries.map((entry) => <GalleryCard id={entry.id} {...entry.data} />)}
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>

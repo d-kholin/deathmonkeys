@@ -1,12 +1,9 @@
 ---
-const currentPath = Astro.url.pathname;
-
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/events', label: 'Events' },
-  { href: '/roster', label: 'Roster' },
-  { href: '/gallery', label: 'Gallery' },
+  { href: '#about', label: 'About' },
+  { href: '#events', label: 'Events' },
+  { href: '#roster', label: 'Roster' },
+  { href: '#gallery', label: 'Gallery' },
 ];
 ---
 
@@ -24,21 +21,13 @@ const navLinks = [
 
   <!-- Desktop links -->
   <ul class="hidden md:flex gap-[var(--spacing-md)] list-none m-0 p-0">
-    {navLinks.map(({ href, label }) => {
-      const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
-      return (
-        <li>
-          <a
-            href={href}
-            class={`text-[#d1d5db] hover:text-white no-underline text-sm transition-colors ${
-              isActive ? 'underline decoration-accent underline-offset-4' : ''
-            }`}
-          >
-            {label}
-          </a>
-        </li>
-      );
-    })}
+    {navLinks.map(({ href, label }) => (
+      <li>
+        <a href={href} class="text-[#d1d5db] hover:text-white no-underline text-sm transition-colors">
+          {label}
+        </a>
+      </li>
+    ))}
   </ul>
 
   <!-- Hamburger button (mobile only) -->
@@ -74,21 +63,13 @@ const navLinks = [
   class="hidden bg-surface-raised w-full md:hidden"
 >
   <ul class="list-none m-0 p-0">
-    {navLinks.map(({ href, label }) => {
-      const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
-      return (
-        <li>
-          <a
-            href={href}
-            class={`mobile-nav-link block px-[var(--spacing-md)] py-[var(--spacing-md)] text-[#d1d5db] hover:text-white no-underline text-sm ${
-              isActive ? 'underline decoration-accent underline-offset-4' : ''
-            }`}
-          >
-            {label}
-          </a>
-        </li>
-      );
-    })}
+    {navLinks.map(({ href, label }) => (
+      <li>
+        <a href={href} class="mobile-nav-link block px-[var(--spacing-md)] py-[var(--spacing-md)] text-[#d1d5db] hover:text-white no-underline text-sm">
+          {label}
+        </a>
+      </li>
+    ))}
   </ul>
 </div>
 

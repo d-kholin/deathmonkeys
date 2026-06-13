@@ -17,8 +17,10 @@
   /* Typography */
   --font-family-heading: 'JetBrains Mono', monospace;
   --font-family-body: ui-sans-serif, system-ui, sans-serif;
+}
 
-  /* Spacing (8-point scale) */
+:root {
+  /* Spacing (8-point scale) — kept in :root so Tailwind v4 doesn't treat them as spacing scale overrides */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
