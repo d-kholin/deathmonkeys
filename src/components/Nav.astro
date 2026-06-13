@@ -1,0 +1,122 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/events', label: 'Events' },
+  { href: '/roster', label: 'Roster' },
+  { href: '/gallery', label: 'Gallery' },
+];
+---
+
+<nav
+  class="bg-surface-raised flex items-center justify-between px-[var(--spacing-md)] md:px-[var(--spacing-xl)]"
+  style="height: var(--nav-height);"
+>
+  <!-- Wordmark -->
+  <a
+    href="/"
+    class="font-heading text-text-primary text-[20px] font-bold uppercase tracking-[0.1em] no-underline"
+  >
+    DEATH MONKEYS
+  </a>
+
+  <!-- Desktop links -->
+  <ul class="hidden md:flex gap-[var(--spacing-md)] list-none m-0 p-0">
+    {navLinks.map(({ href, label }) => {
+      const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+      return (
+        <li>
+          <a
+            href={href}
+            class={`text-[#d1d5db] hover:text-white no-underline text-sm transition-colors ${
+              isActive ? 'underline decoration-accent underline-offset-4' : ''
+            }`}
+          >
+            {label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <!-- Hamburger button (mobile only) -->
+  <button
+    id="menu-toggle"
+    class="md:hidden flex items-center justify-center text-text-primary"
+    style="min-width: 44px; min-height: 44px;"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile menu panel (slide-down dropdown, not full-screen overlay) -->
+<div
+  id="mobile-menu"
+  class="hidden bg-surface-raised w-full md:hidden"
+>
+  <ul class="list-none m-0 p-0">
+    {navLinks.map(({ href, label }) => {
+      const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+      return (
+        <li>
+          <a
+            href={href}
+            class={`mobile-nav-link block px-[var(--spacing-md)] py-[var(--spacing-md)] text-[#d1d5db] hover:text-white no-underline text-sm ${
+              isActive ? 'underline decoration-accent underline-offset-4' : ''
+            }`}
+          >
+            {label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</div>
+
+<script is:inline>
+  (function () {
+    var toggle = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        menu.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Auto-close on link tap (D-07)
+    var mobileLinks = menu.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
