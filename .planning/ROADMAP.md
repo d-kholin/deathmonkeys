@@ -30,11 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 **UI hint:** yes
 
 Plans:
-- [ ] 1.1: Scaffold + Config
-- [ ] 1.2: Content Collections
-- [ ] 1.3: Layout + Shared Components
-- [ ] 1.4: Card Components + Pages
-- [ ] 1.5: Gallery Detail + QA
+- [ ] 01-PLAN-01.md — Scaffold + Config (Astro v5 + Tailwind v4 + TS strict + @theme tokens)
+- [ ] 01-PLAN-02.md — Content Collections (events/roster/gallery schemas + seed data)
+- [ ] 01-PLAN-03.md — Layout + Shared Components (BaseLayout, Nav + hamburger, Footer)
+- [ ] 01-PLAN-04.md — Card Components + Pages (3 cards + home/about/events/roster/gallery)
+- [ ] 01-PLAN-05.md — Gallery Detail + QA (/gallery/[id] route + check/build gates)
 
 ---
 
