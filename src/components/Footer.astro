@@ -1,7 +1,39 @@
 ---
 ---
 
-<footer class="bg-surface px-[var(--spacing-xl)] py-[var(--spacing-2xl)] text-center">
-  <p class="text-text-muted font-body text-sm">Death Monkeys</p>
-  <p class="text-text-muted font-body text-sm">Badlands field, Alberta</p>
+<footer class="border-t border-border bg-surface px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-[var(--spacing-2xl)]">
+
+      <!-- Identity block -->
+      <div>
+        <p class="font-heading text-text-primary text-[18px] font-bold uppercase tracking-[0.1em] mb-[var(--spacing-sm)]">
+          Death Monkeys
+        </p>
+        <p class="text-text-muted text-sm leading-relaxed max-w-xs">
+          Coordinated ops. Honest hits. No egos.<br />
+          Come find us on the field.
+        </p>
+      </div>
+
+      <!-- Nav + CTA -->
+      <div class="flex flex-col gap-[var(--spacing-lg)]">
+        <nav aria-label="Footer navigation">
+          <ul class="flex flex-wrap gap-x-[var(--spacing-lg)] gap-y-[var(--spacing-xs)] list-none m-0 p-0">
+            <li><a href="#about" class="text-text-muted hover:text-text-primary text-sm no-underline transition-colors">About</a></li>
+            <li><a href="#events" class="text-text-muted hover:text-text-primary text-sm no-underline transition-colors">Events</a></li>
+            <li><a href="#roster" class="text-text-muted hover:text-text-primary text-sm no-underline transition-colors">Roster</a></li>
+            <li><a href="#gallery" class="text-text-muted hover:text-text-primary text-sm no-underline transition-colors">Gallery</a></li>
+          </ul>
+        </nav>
+        <a
+          href="#join"
+          class="inline-block self-start bg-accent text-surface font-heading font-bold uppercase tracking-[0.08em] text-[13px] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
+        >
+          Join the Team
+        </a>
+      </div>
+
+    </div>
+  </div>
 </footer>

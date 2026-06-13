@@ -33,18 +33,38 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   ></div>
 
   <!-- Hero: full viewport, logo in background does the talking -->
-  <section aria-label="Hero" style="min-height: 90vh;"></section>
+  <section aria-label="Hero" style="min-height: 90vh; position: relative;">
+    <div
+      aria-hidden="true"
+      style="position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);"
+    >
+      <svg
+        class="scroll-cue"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#8aad3a"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+  </section>
 
   <!-- About -->
   <section id="about">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+      <p class="section-eyebrow mb-[var(--spacing-2xl)]">About</p>
       <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-2xl)]">
         We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
         Part milsim crew, part chaos agents.
       </p>
 
       <div class="mb-[var(--spacing-2xl)]">
-        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Who We Are</h2>
+        <h2 class="section-subhead mb-[var(--spacing-md)]">Who We Are</h2>
         <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-md)]">
           The Death Monkeys are a small-unit airsoft team that takes the game seriously — but never
           themselves. We run coordinated multi-role operations, communicate on comms, and hold
@@ -59,7 +79,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
       </div>
 
       <div class="mb-[var(--spacing-2xl)]">
-        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Where We Play</h2>
+        <h2 class="section-subhead mb-[var(--spacing-md)]">Where We Play</h2>
         <p class="text-text-secondary text-base leading-relaxed">
           Our home field is <strong class="text-text-primary">Badlands field, Alberta</strong>.
           The terrain is varied, the weather is unpredictable, and the cover is exactly right for
@@ -69,7 +89,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
       </div>
 
       <div class="mb-[var(--spacing-2xl)]">
-        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Ethos</h2>
+        <h2 class="section-subhead mb-[var(--spacing-md)]">Ethos</h2>
         <ul class="space-y-[var(--spacing-sm)] text-text-secondary text-base leading-relaxed list-none">
           <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
             <strong class="text-text-primary">Call your hits.</strong> Every time. No exceptions. The game only works if we're all honest.
@@ -87,7 +107,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
       </div>
 
       <div id="join">
-        <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">Want In?</h2>
+        <h2 class="section-subhead mb-[var(--spacing-md)]">Want In?</h2>
         <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
           We welcome players of all experience levels. If you can follow commands, call your hits,
           and laugh when things go sideways, you'll fit right in. Show up to a field day, introduce
@@ -106,7 +126,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <!-- Events -->
   <section id="events" class="border-t border-border">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
-      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Events</h2>
+      <p class="section-eyebrow mb-[var(--spacing-2xl)]">Events</p>
       {events.length === 0 ? (
         <div class="text-center py-[var(--spacing-3xl)]">
           <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No Operations Scheduled</p>
@@ -123,7 +143,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <!-- Roster -->
   <section id="roster" class="border-t border-border">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
-      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Roster</h2>
+      <p class="section-eyebrow mb-[var(--spacing-2xl)]">Roster</p>
       {members.length === 0 ? (
         <div class="text-center py-[var(--spacing-3xl)]">
           <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No Operators Found</p>
@@ -140,7 +160,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <!-- Gallery -->
   <section id="gallery" class="border-t border-border">
     <div class="max-w-4xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
-      <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Gallery</h2>
+      <p class="section-eyebrow mb-[var(--spacing-2xl)]">Gallery</p>
       {galleryEntries.length === 0 ? (
         <div class="text-center py-[var(--spacing-3xl)]">
           <p class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-md)]">No After-Action Reports</p>

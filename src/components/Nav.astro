@@ -23,7 +23,11 @@ const navLinks = [
   <ul class="hidden md:flex gap-[var(--spacing-md)] list-none m-0 p-0">
     {navLinks.map(({ href, label }) => (
       <li>
-        <a href={href} class="text-[#d1d5db] hover:text-white no-underline text-sm transition-colors">
+        <a
+          href={href}
+          data-nav-link={href.replace('#', '')}
+          class="nav-link text-[#d1d5db] hover:text-white no-underline text-sm transition-colors"
+        >
           {label}
         </a>
       </li>
@@ -91,13 +95,41 @@ const navLinks = [
       }
     });
 
-    // Auto-close on link tap (D-07)
+    // Auto-close on link tap
     var mobileLinks = menu.querySelectorAll('.mobile-nav-link');
     mobileLinks.forEach(function (link) {
       link.addEventListener('click', function () {
         menu.classList.add('hidden');
         toggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Active section tracking via IntersectionObserver
+    var navLinks = document.querySelectorAll('a[data-nav-link]');
+    if (!navLinks.length || !window.IntersectionObserver) return;
+
+    var ACCENT = '#8aad3a';
+    var DEFAULT = '#d1d5db';
+
+    function setActive(id) {
+      navLinks.forEach(function (link) {
+        var matches = link.getAttribute('data-nav-link') === id;
+        link.style.color = matches ? ACCENT : DEFAULT;
+      });
+    }
+
+    var sections = ['about', 'events', 'roster', 'gallery'];
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
   })();
 </script>

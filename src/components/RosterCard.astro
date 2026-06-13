@@ -11,19 +11,21 @@ const { callsign, realName, role, loadout, active } = Astro.props;
 ---
 
 <article class={`bg-surface-raised p-[var(--spacing-lg)] ${!active ? 'opacity-50 bg-surface-inactive' : ''}`}>
-  <div class="mb-[var(--spacing-sm)]">
-    <h3 class="font-heading text-[20px] font-bold leading-[1.2] text-text-primary uppercase tracking-[0.05em]">
-      {callsign}
-    </h3>
-    {realName && (
-      <p class="text-[14px] leading-[1.4] text-text-muted mt-[var(--spacing-xs)]">
-        {realName}
-      </p>
-    )}
+  <div class="flex items-start justify-between gap-[var(--spacing-sm)] mb-[var(--spacing-sm)]">
+    <div>
+      <h3 class="font-heading text-[20px] font-bold leading-[1.2] text-text-primary uppercase tracking-[0.05em]">
+        {callsign}
+      </h3>
+      {realName && (
+        <p class="text-[14px] leading-[1.4] text-text-muted mt-[var(--spacing-xs)]">
+          {realName}
+        </p>
+      )}
+    </div>
+    <span class="shrink-0 font-heading text-[11px] font-bold uppercase tracking-[0.15em] text-accent border border-accent px-[var(--spacing-sm)] py-[var(--spacing-xs)] leading-[1.4]">
+      {role}
+    </span>
   </div>
-  <p class="text-base text-text-secondary leading-relaxed mb-[var(--spacing-xs)]">
-    {role}
-  </p>
   <p class="text-[14px] text-text-muted leading-[1.4]">
     {loadout}
   </p>
