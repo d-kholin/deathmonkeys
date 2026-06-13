@@ -1,23 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 ---
 
-<BaseLayout title="Death Monkeys">
+<BaseLayout title="Death Monkeys" bodyClass="bg-transparent">
+  <!-- Fixed background image — stays in place while content scrolls -->
+  <div
+    id="fixed-bg"
+    style="position: fixed; inset: 0; z-index: -2; background-image: url('/images/hero-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+    aria-hidden="true"
+  ></div>
+  <!-- Scroll-driven overlay — darkens as user scrolls down -->
+  <div
+    id="bg-overlay"
+    style="position: fixed; inset: 0; z-index: -1; background: black; opacity: 0.1;"
+    aria-hidden="true"
+  ></div>
+
   <!-- Hero Section -->
-  <section
-    class="relative flex flex-col items-center justify-center min-h-[65vh] text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]"
-    style="background-image: url('/images/hero-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
-  >
-    <!-- Dark overlay for text readability -->
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative z-10 max-w-2xl w-full">
+  <section class="flex flex-col items-center justify-center min-h-[90vh] text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]">
+    <div class="max-w-2xl w-full">
       <h1 class="font-heading text-[40px] max-sm:text-[28px] font-bold uppercase tracking-[0.1em] text-text-primary leading-[1.1]">
         DEATH MONKEYS
       </h1>
-      <p class="mt-[var(--spacing-md)] font-heading text-[40px] max-sm:text-[28px] font-bold leading-[1.1] text-text-primary">
-        Armed. Dangerous. Slightly Bananas.
-      </p>
       <a
         href="/about#join"
         class="mt-[var(--spacing-xl)] inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
@@ -28,17 +32,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- About Blurb + Section Navigation -->
-  <section class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
-    <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
-      We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
-      Part milsim crew, part chaos agents. If you want structured ops with a side of primate energy,
-      you've found your people.
-    </p>
-    <nav class="flex flex-wrap gap-[var(--spacing-md)]" aria-label="Site sections">
-      <a href="/about" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">About</a>
-      <a href="/events" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Events</a>
-      <a href="/roster" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Roster</a>
-      <a href="/gallery" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Gallery</a>
-    </nav>
+  <section class="bg-black/80" style="backdrop-filter: blur(2px);">
+    <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
+      <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-lg)]">
+        We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
+        Part milsim crew, part chaos agents. If you want structured ops with a side of primate energy,
+        you've found your people.
+      </p>
+      <nav class="flex flex-wrap gap-[var(--spacing-md)]" aria-label="Site sections">
+        <a href="/about" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">About</a>
+        <a href="/events" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Events</a>
+        <a href="/roster" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Roster</a>
+        <a href="/gallery" class="text-text-secondary hover:text-text-primary uppercase tracking-[0.05em] font-heading text-sm font-bold border border-border px-[var(--spacing-md)] py-[var(--spacing-sm)] hover:border-accent transition-colors">Gallery</a>
+      </nav>
+    </div>
   </section>
 </BaseLayout>
+
+<script>
+  const overlay = document.getElementById('bg-overlay') as HTMLElement;
+  const maxScroll = window.innerHeight * 0.8;
+
+  window.addEventListener('scroll', () => {
+    const opacity = 0.1 + (Math.min(window.scrollY, maxScroll) / maxScroll) * 0.62;
+    overlay.style.opacity = opacity.toFixed(3);
+  }, { passive: true });
+</script>
