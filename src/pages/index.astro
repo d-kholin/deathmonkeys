@@ -36,7 +36,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <section aria-label="Hero" style="min-height: 90vh;"></section>
 
   <!-- About -->
-  <section id="about" class="bg-black/80">
+  <section id="about">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
       <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-2xl)]">
         We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
@@ -104,7 +104,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   </section>
 
   <!-- Events -->
-  <section id="events" class="bg-black/80 border-t border-border">
+  <section id="events" class="border-t border-border">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
       <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Events</h2>
       {events.length === 0 ? (
@@ -121,7 +121,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   </section>
 
   <!-- Roster -->
-  <section id="roster" class="bg-black/80 border-t border-border">
+  <section id="roster" class="border-t border-border">
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
       <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Roster</h2>
       {members.length === 0 ? (
@@ -138,7 +138,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   </section>
 
   <!-- Gallery -->
-  <section id="gallery" class="bg-black/80 border-t border-border">
+  <section id="gallery" class="border-t border-border">
     <div class="max-w-4xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
       <h2 class="font-heading text-[20px] font-bold uppercase tracking-[0.05em] text-text-primary mb-[var(--spacing-2xl)]">Gallery</h2>
       {galleryEntries.length === 0 ? (
@@ -160,7 +160,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   const maxScroll = window.innerHeight * 0.8;
 
   window.addEventListener('scroll', () => {
-    const opacity = 0.1 + (Math.min(window.scrollY, maxScroll) / maxScroll) * 0.62;
+    const opacity = 0.1 + (Math.min(window.scrollY, maxScroll) / maxScroll) * 0.72;
     overlay.style.opacity = opacity.toFixed(3);
   }, { passive: true });
 </script>
