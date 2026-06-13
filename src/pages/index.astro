@@ -1,27 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const noiseSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`;
 ---
 
 <BaseLayout title="Death Monkeys">
   <!-- Hero Section -->
   <section
-    class="relative flex flex-col items-center justify-center min-h-[65vh] bg-surface text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]"
-    style={`background-image: ${noiseSvg}; background-repeat: repeat;`}
+    class="relative flex flex-col items-center justify-center min-h-[65vh] text-center px-[var(--spacing-xl)] py-[var(--spacing-2xl)]"
+    style="background-image: url('/images/hero-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
   >
-    <h1 class="font-heading text-[40px] max-sm:text-[28px] font-bold uppercase tracking-[0.1em] text-text-primary leading-[1.1]">
-      DEATH MONKEYS
-    </h1>
-    <p class="mt-[var(--spacing-md)] font-heading text-[40px] max-sm:text-[28px] font-bold leading-[1.1] text-text-primary">
-      Armed. Dangerous. Slightly Bananas.
-    </p>
-    <a
-      href="/about#join"
-      class="mt-[var(--spacing-xl)] inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
-    >
-      Join the Team
-    </a>
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-2xl w-full">
+      <h1 class="font-heading text-[40px] max-sm:text-[28px] font-bold uppercase tracking-[0.1em] text-text-primary leading-[1.1]">
+        DEATH MONKEYS
+      </h1>
+      <p class="mt-[var(--spacing-md)] font-heading text-[40px] max-sm:text-[28px] font-bold leading-[1.1] text-text-primary">
+        Armed. Dangerous. Slightly Bananas.
+      </p>
+      <a
+        href="/about#join"
+        class="mt-[var(--spacing-xl)] inline-block bg-accent text-text-primary font-heading font-bold uppercase tracking-[0.05em] px-[var(--spacing-lg)] py-[var(--spacing-sm)] hover:opacity-90 transition-opacity"
+      >
+        Join the Team
+      </a>
+    </div>
   </section>
 
   <!-- About Blurb + Section Navigation -->
