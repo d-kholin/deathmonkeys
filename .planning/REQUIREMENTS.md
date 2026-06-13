@@ -2,7 +2,7 @@
 
 **Milestone:** v1.0
 **Status:** Active
-**Last updated:** 2026-06-12 after initialization
+**Last updated:** 2026-06-12 after roadmap creation
 
 ---
 
@@ -74,24 +74,24 @@
 
 | REQ-ID | Phase | Plan |
 |--------|-------|------|
-| FOUND-01 | 1 | — |
-| FOUND-02 | 1 | — |
-| FOUND-03 | 1 | — |
-| CONTENT-01 | 1 | — |
-| CONTENT-02 | 1 | — |
-| CONTENT-03 | 1 | — |
-| CONTENT-04 | 1 | — |
-| COMP-01 | 1 | — |
-| COMP-02 | 1 | — |
-| COMP-03 | 1 | — |
-| COMP-04 | 1 | — |
-| COMP-05 | 1 | — |
-| COMP-06 | 1 | — |
-| PAGE-01 | 1 | — |
-| PAGE-02 | 1 | — |
-| PAGE-03 | 1 | — |
-| PAGE-04 | 1 | — |
-| PAGE-05 | 1 | — |
-| PAGE-06 | 1 | — |
-| QA-01 | 1 | — |
-| QA-02 | 1 | — |
+| FOUND-01 | 1 | 1.1 |
+| FOUND-02 | 1 | 1.1 |
+| FOUND-03 | 1 | 1.2 |
+| CONTENT-01 | 1 | 1.2 |
+| CONTENT-02 | 1 | 1.2 |
+| CONTENT-03 | 1 | 1.2 |
+| CONTENT-04 | 1 | 1.2 |
+| COMP-01 | 1 | 1.3 |
+| COMP-02 | 1 | 1.3 |
+| COMP-03 | 1 | 1.3 |
+| COMP-04 | 1 | 1.4 |
+| COMP-05 | 1 | 1.4 |
+| COMP-06 | 1 | 1.4 |
+| PAGE-01 | 1 | 1.4 |
+| PAGE-02 | 1 | 1.4 |
+| PAGE-03 | 1 | 1.4 |
+| PAGE-04 | 1 | 1.4 |
+| PAGE-05 | 1 | 1.4 |
+| PAGE-06 | 1 | 1.5 |
+| QA-01 | 1 | 1.5 |
+| QA-02 | 1 | 1.5 |
