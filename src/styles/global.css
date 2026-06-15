@@ -76,8 +76,8 @@ body {
 
 @media (max-width: 767px) {
   .hero-fixed-bg {
-    background-size: cover;
-    background-position: center center;
+    background-size: auto 80svh;
+    background-position: center 10%;
   }
   .hero-section {
     min-height: 70vh;
