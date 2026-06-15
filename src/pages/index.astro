@@ -34,10 +34,11 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   ></div>
 
   <!-- Hero: full viewport, logo in background does the talking -->
-  <section aria-label="Hero" style="min-height: 90vh; position: relative;">
+  <!-- min-height fallback for older browsers; dvh accounts for iOS Safari's address bar -->
+  <section aria-label="Hero" style="min-height: 90vh; min-height: 90dvh; position: relative;">
     <div
       aria-hidden="true"
-      style="position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);"
+      style="position: absolute; bottom: 2.5rem; bottom: calc(2.5rem + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);"
     >
       <svg
         class="scroll-cue"
