@@ -3,7 +3,6 @@ callsign: Obsequious Penguin
 realName: Rhett
 role: Exhaustive Advance
 loadout: AK-74u / Triple Barrel Pump Action Shotgun
-joinedDate: Time Immaterial
 active: true
 ---
 

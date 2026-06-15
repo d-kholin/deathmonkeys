@@ -3,7 +3,6 @@ callsign: Nakunga
 realName: Naku
 role: Skitter and Dance
 loadout: Coronacht (SA Prime RRA P03), 
-joinedDate: Since forever?
 active: true
 ---
 

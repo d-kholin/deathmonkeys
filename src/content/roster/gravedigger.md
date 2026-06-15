@@ -3,7 +3,6 @@ callsign: Gravedigger
 realName: Marcus
 role: Support gunner
 loadout: LMG platform / drum mag / bipod / full battle rig
-joinedDate: 2023-09-07
 active: true
 ---
 

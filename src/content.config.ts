@@ -19,7 +19,6 @@ const roster = defineCollection({
     realName: z.string().optional(),
     role: z.string(),
     loadout: z.string(),
-    joinedDate: z.coerce.date().optional(),
     active: z.boolean(),
   }),
 });

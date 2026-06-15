@@ -3,7 +3,6 @@ callsign: Jackdaw
 realName: Devon
 role: Recon / DMR
 loadout: Semi-auto DMR / suppressor / ghillie wrap / minimal kit
-joinedDate: 2024-01-14
 active: false
 ---
 
