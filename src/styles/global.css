@@ -76,7 +76,7 @@ body {
 
 @media (max-width: 767px) {
   .hero-fixed-bg {
-    background-size: auto 65dvh;
+    background-size: cover;
     background-position: center center;
   }
   .hero-section {
