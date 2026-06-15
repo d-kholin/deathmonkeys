@@ -1,8 +1,8 @@
 ---
 callsign: Nakunga
-realName: Naku
+realName: Michael
 role: Skitter and Dance
-loadout: Coronacht (SA Prime RRA P03), 
+loadout: Coronacht (SA Prime RRA P03), KJWorks Glock 18C
 active: true
 ---
 
