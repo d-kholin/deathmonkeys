@@ -68,10 +68,20 @@ body {
   background-position: center;
 }
 
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  min-height: 90dvh;
+}
+
 @media (max-width: 767px) {
   .hero-fixed-bg {
-    background-size: auto 44vh;
-    background-position: center 30%;
+    background-size: auto 65dvh;
+    background-position: center top;
+  }
+  .hero-section {
+    min-height: 70vh;
+    min-height: 70dvh;
   }
 }
 

@@ -35,7 +35,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
 
   <!-- Hero: full viewport, logo in background does the talking -->
   <!-- min-height fallback for older browsers; dvh accounts for iOS Safari's address bar -->
-  <section aria-label="Hero" style="min-height: 90vh; min-height: 90dvh; position: relative;">
+  <section aria-label="Hero" class="hero-section">
     <div
       aria-hidden="true"
       style="position: absolute; bottom: 2.5rem; bottom: calc(2.5rem + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);"
@@ -61,32 +61,23 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
     <div class="max-w-3xl mx-auto px-[var(--spacing-xl)] py-[var(--spacing-3xl)]">
       <p class="section-eyebrow mb-[var(--spacing-2xl)]">About</p>
       <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-2xl)]">
-        We are the Death Monkeys — a tactical airsoft unit operating out of Badlands field in Alberta.
-        Part milsim crew, part chaos agents.
+        Not much is known about the Death Monkeys, and the only intel about them has been recovered by black boxes after entire
+        squads have been wiped out, but they appear to be getting bolder....
       </p>
 
       <div class="mb-[var(--spacing-2xl)]">
         <h2 class="section-subhead mb-[var(--spacing-md)]">Who We Are</h2>
         <p class="text-text-secondary text-base leading-relaxed mb-[var(--spacing-md)]">
-          The Death Monkeys are a small-unit airsoft team that takes the game seriously — but never
-          themselves. We run coordinated multi-role operations, communicate on comms, and hold
-          objectives with tactical discipline. Then we argue about who got hit first and laugh about
-          it over hot dogs.
+          The Death Monkeys are a group of friends who enjoy blowing off steam by shooting each other, non leathally.
+          While the core group has been playing together for more than a decade, the numbers have recently been increasing,
+          and a full on Death Monkey resurgence is imminent.
         </p>
-        <p class="text-text-secondary text-base leading-relaxed">
-          Founded by Nakunga (Naku) with a mandate to have the most fun per trigger pull of any
-          team on the field, the Death Monkeys have grown from a two-person squad into a full
-          operational element with dedicated assaulters, support gunners, and recon specialists.
-        </p>
-      </div>
 
       <div class="mb-[var(--spacing-2xl)]">
         <h2 class="section-subhead mb-[var(--spacing-md)]">Where We Play</h2>
         <p class="text-text-secondary text-base leading-relaxed">
-          Our home field is <strong class="text-text-primary">Badlands field, Alberta</strong>.
-          The terrain is varied, the weather is unpredictable, and the cover is exactly right for
-          the kind of chaos we prefer. We run ops on scheduled game days and occasionally book
-          private team training sessions when Command decides we need to sharpen our edge.
+          Due both to being a fantastic field and atmosphere, as well as a lack of Soutern Alberta options, we generally play at Capture the Flag Paintball.
+          While we take a break over the winter, summertime sees us throwing many thousand spherical death balls at one another. 
         </p>
       </div>
 
@@ -94,16 +85,10 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
         <h2 class="section-subhead mb-[var(--spacing-md)]">Ethos</h2>
         <ul class="space-y-[var(--spacing-sm)] text-text-secondary text-base leading-relaxed list-none">
           <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
-            <strong class="text-text-primary">Call your hits.</strong> Every time. No exceptions. The game only works if we're all honest.
+            <strong class="text-text-primary">Call your hits.</strong> Every time. No exceptions. If someone hit you, let them relish the moment. What's in it for you? Sweet revenge....
           </li>
           <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
-            <strong class="text-text-primary">Communicate.</strong> Silence is how operations fall apart. Get on comms and use them.
-          </li>
-          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
-            <strong class="text-text-primary">Debrief everything.</strong> After every engagement there is an AAR. What worked, what didn't, and who got lit up from behind again.
-          </li>
-          <li class="border-l-2 border-accent pl-[var(--spacing-md)]">
-            <strong class="text-text-primary">Leave the ego at the gate.</strong> We're here to improve and to enjoy the game. New players get patience, not grief.
+            <strong class="text-text-primary">Leave the ego at the gate.</strong> Our lives have enough drama, we're here to have fun and let loose.
           </li>
         </ul>
       </div>
