@@ -10,28 +10,71 @@ interface Props {
 const { callsign, realName, role, loadout, active } = Astro.props;
 ---
 
-<article class={`bg-surface-raised p-[var(--spacing-lg)] ${!active ? 'opacity-50 bg-surface-inactive' : ''}`}>
-  <div class="flex items-start justify-between gap-[var(--spacing-sm)] mb-[var(--spacing-sm)]">
-    <div>
-      <h3 class="font-heading text-[20px] font-bold leading-[1.2] text-text-primary uppercase tracking-[0.05em]">
-        {callsign}
-      </h3>
-      {realName && (
-        <p class="text-[14px] leading-[1.4] text-text-muted mt-[var(--spacing-xs)]">
-          {realName}
-        </p>
+<details class={`roster-card bg-surface-raised ${!active ? 'opacity-50 bg-surface-inactive' : ''}`}>
+  <summary class="flex items-center gap-[var(--spacing-sm)] p-[var(--spacing-lg)] cursor-pointer select-none">
+    <div class="flex items-start justify-between gap-[var(--spacing-sm)] flex-1 min-w-0">
+      <div class="min-w-0">
+        <h3 class="font-heading text-[20px] font-bold leading-[1.2] text-text-primary uppercase tracking-[0.05em]">
+          {callsign}
+        </h3>
+        {realName && (
+          <p class="text-[14px] leading-[1.4] text-text-muted mt-[var(--spacing-xs)]">
+            {realName}
+          </p>
+        )}
+      </div>
+      <span class="shrink-0 font-heading text-[11px] font-bold uppercase tracking-[0.15em] text-accent border border-accent px-[var(--spacing-sm)] py-[var(--spacing-xs)] leading-[1.4]">
+        {role}
+      </span>
+    </div>
+    <svg
+      class="chevron shrink-0 w-4 h-4 text-text-muted"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </summary>
+
+  <div class="px-[var(--spacing-lg)] pb-[var(--spacing-lg)]">
+    <div class="border-t border-border pt-[var(--spacing-md)] space-y-[var(--spacing-md)]">
+      <p class="text-[13px] font-heading font-bold uppercase tracking-[0.08em] text-text-muted">
+        {loadout}
+      </p>
+      <div class="member-bio text-[14px] text-text-secondary leading-[1.6]">
+        <slot />
+      </div>
+      {!active && (
+        <span class="inline-block text-[14px] uppercase tracking-[0.05em] text-text-muted font-heading font-bold">
+          INACTIVE
+        </span>
       )}
     </div>
-    <span class="shrink-0 font-heading text-[11px] font-bold uppercase tracking-[0.15em] text-accent border border-accent px-[var(--spacing-sm)] py-[var(--spacing-xs)] leading-[1.4]">
-      {role}
-    </span>
   </div>
-  <p class="text-[14px] text-text-muted leading-[1.4]">
-    {loadout}
-  </p>
-  {!active && (
-    <span class="inline-block mt-[var(--spacing-sm)] text-[14px] uppercase tracking-[0.05em] text-text-muted font-heading font-bold">
-      INACTIVE
-    </span>
-  )}
-</article>
+</details>
+
+<style>
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .chevron {
+    transition: transform 0.2s ease;
+  }
+  details[open] .chevron {
+    transform: rotate(180deg);
+  }
+  .member-bio :global(p) {
+    margin-bottom: 0.75em;
+  }
+  .member-bio :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>
