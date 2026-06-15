@@ -1,12 +1,12 @@
 ---
 callsign: Nakunga
 realName: Naku
-role: Assault
-loadout: HPA rifle / chest rig / lightweight kit
-joinedDate: 2023-03-20
+role: Skitter and Dance
+loadout: Coronacht (SA Prime RRA P03), 
+joinedDate: Since forever?
 active: true
 ---
 
-The original monkey. Nakunga has been running Death Monkeys ops since before there was a proper team name. Aggressive on the advance, disciplined on communication, and somehow always in the right place when it counts.
+Somehow always in the wrong place at the wrong time, at least from the enemies point of view, Nakunga wants to know what you expect of him so he can do something else entirely.
 
-HPA rifle running hot, chest rig stripped to the minimum, kit optimized for speed over comfort. If you hear someone crash a flank and it works, that's Naku.
+
