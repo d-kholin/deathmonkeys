@@ -9,6 +9,7 @@ const events = defineCollection({
     location: z.string(),
     description: z.string(),
     status: z.enum(['upcoming', 'completed', 'cancelled']),
+    directionsUrl: z.string().url().optional(),
   }),
 });
 

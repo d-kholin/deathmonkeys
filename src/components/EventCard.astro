@@ -5,9 +5,10 @@ interface Props {
   location: string;
   description: string;
   status: 'upcoming' | 'completed' | 'cancelled';
+  directionsUrl?: string;
 }
 
-const { title, date, location, description, status } = Astro.props;
+const { title, date, location, description, status, directionsUrl } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-CA', {
   year: 'numeric',
@@ -35,7 +36,11 @@ const badge = badgeConfig[status];
   </div>
   <div class="flex flex-wrap gap-x-[var(--spacing-md)] gap-y-[var(--spacing-xs)] text-[14px] text-text-muted mb-[var(--spacing-md)]">
     <span>{formattedDate}</span>
-    <span>{location}</span>
+    {directionsUrl ? (
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">{location} ↗</a>
+    ) : (
+      <span>{location}</span>
+    )}
   </div>
   <p class="text-base text-text-secondary leading-relaxed">
     {description}
