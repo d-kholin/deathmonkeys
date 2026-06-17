@@ -3,3 +3,9 @@ compatibility_date = "2026-06-14"
 
 [assets]
 directory = "./dist"
+
+[env.dev]
+name = "deathmonkeys-dev"
+
+[env.dev.assets]
+directory = "./dist"
