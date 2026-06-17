@@ -80,8 +80,8 @@ body {
     background-position: center top;
   }
   .hero-section {
-    min-height: 70vh;
-    min-height: 70dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
   }
 }
 
