@@ -8,7 +8,7 @@ const events = defineCollection({
     date: z.coerce.date(),
     location: z.string(),
     description: z.string(),
-    status: z.enum(['upcoming', 'completed', 'cancelled']),
+    cancelled: z.boolean().optional().default(false),
     directionsUrl: z.string().url().optional(),
   }),
 });
