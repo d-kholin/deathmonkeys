@@ -4,11 +4,11 @@ interface Props {
   date: Date;
   location: string;
   description: string;
-  status: 'upcoming' | 'completed' | 'cancelled';
+  cancelled: boolean;
   directionsUrl?: string;
 }
 
-const { title, date, location, description, status, directionsUrl } = Astro.props;
+const { title, date, location, description, cancelled, directionsUrl } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-CA', {
   year: 'numeric',
@@ -16,13 +16,36 @@ const formattedDate = date.toLocaleDateString('en-CA', {
   day: 'numeric',
 });
 
-const badgeConfig = {
-  upcoming: { label: 'UPCOMING', classes: 'bg-accent text-text-primary' },
-  completed: { label: 'COMPLETED', classes: 'bg-badge-completed text-text-secondary' },
-  cancelled: { label: 'CANCELLED', classes: 'bg-destructive text-text-primary' },
+// Derive status at build time from date and cancelled flag.
+// Normalize both sides to midnight so time-of-day doesn't affect the comparison.
+type EventStatus = 'upcoming' | 'in-progress' | 'past' | 'cancelled';
+
+let computedStatus: EventStatus;
+if (cancelled) {
+  computedStatus = 'cancelled';
+} else {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const eventDay = new Date(date);
+  eventDay.setHours(0, 0, 0, 0);
+
+  if (eventDay.getTime() > today.getTime()) {
+    computedStatus = 'upcoming';
+  } else if (eventDay.getTime() === today.getTime()) {
+    computedStatus = 'in-progress';
+  } else {
+    computedStatus = 'past';
+  }
+}
+
+const badgeConfig: Record<EventStatus, { label: string; classes: string }> = {
+  upcoming:    { label: 'UPCOMING',           classes: 'bg-accent text-text-primary' },
+  'in-progress': { label: 'OP IN PROGRESS',   classes: 'bg-accent text-text-primary animate-pulse' },
+  past:        { label: 'PREVIOUS OPERATION', classes: 'bg-badge-completed text-text-secondary' },
+  cancelled:   { label: 'CANCELLED',          classes: 'bg-destructive text-text-primary' },
 };
 
-const badge = badgeConfig[status];
+const badge = badgeConfig[computedStatus];
 ---
 
 <article class="group relative bg-surface-raised p-[var(--spacing-lg)] border-l-2 border-l-transparent hover:border-l-accent transition-colors">
