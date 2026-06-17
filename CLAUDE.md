@@ -16,6 +16,14 @@ A public-facing static website for the Death Monkeys airsoft team based out of t
 - **Type safety**: Must pass `astro check` clean
 - **Build**: `npm run build` must succeed before task is considered done
 
+### Git Workflow
+
+- **Default branch for development**: `dev` — all work happens here
+- **Tracking**: local `dev` branch must track `origin/dev`
+- **Main is protected**: never commit directly to `main`; never push to `main`
+- **Merging to main**: create a pull request from `dev` → `main`; merge only through an approved PR
+- When starting a session, check out `dev` (create it from `main` if it doesn't exist yet, then push with `-u` to set tracking)
+
 <!-- GSD:project-end -->
 
 <!-- GSD:stack-start source:research/STACK.md -->
