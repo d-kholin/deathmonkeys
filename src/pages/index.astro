@@ -43,6 +43,7 @@ const galleryEntries = allGallery.sort((a, b) => b.data.date.valueOf() - a.data.
   <!-- min-height fallback for older browsers; dvh accounts for iOS Safari's address bar -->
   <section aria-label="Hero" class="hero-section">
     <div
+      class="scroll-cue-wrapper"
       aria-hidden="true"
       style="position: absolute; bottom: 2.5rem; bottom: calc(2.5rem + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);"
     >

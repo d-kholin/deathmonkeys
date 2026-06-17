@@ -80,8 +80,12 @@ body {
     background-position: center top;
   }
   .hero-section {
-    min-height: 85vh;
-    min-height: 85dvh;
+    min-height: 70vh;
+    min-height: 70dvh;
+  }
+  .scroll-cue-wrapper {
+    bottom: 1rem !important;
+    bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
   }
 }
 
